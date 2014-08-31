@@ -1,4 +1,6 @@
 module RPNCalc
+  # Application implementation takes care of starting
+  #   the calculator and any special options.
   class Application
     def initialize(argv)
       @params   = parse_options(argv)
@@ -9,12 +11,12 @@ module RPNCalc
       @calculator.compute
     end
 
-    def parse_options(argv)
+    def parse_options(_argv)
       params = {}
       parser = OptionParser.new
-      
-      # I can add option for the program here
-      
+
+      # Options for the program can be added here
+
       params
     end
   end

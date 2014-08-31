@@ -1,4 +1,4 @@
-require "optparse"
+require 'optparse'
 
-require_relative "rpn_calc/application"
-require_relative "rpn_calc/calculator"
+require_relative 'rpn_calc/application'
+require_relative 'rpn_calc/calculator'
