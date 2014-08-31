@@ -1,9 +1,8 @@
 module RPNCalc
   class Calculator
+    
     def initialize(params)
       # I can set special functionality based on 'params' passed by the parser
-      
-      @@num_list = Array.new
     end
 
     def compute()
@@ -14,7 +13,7 @@ module RPNCalc
         break if expr === "q"
         case expr
         when "clr"
-          @@num_list.clear
+          num_list.clear
         when "+"
           add
         when "-"
@@ -25,18 +24,22 @@ module RPNCalc
           div
         else
           if is_num?(expr)
-            @@num_list.push(Float(expr))
+            num_list.push(Float(expr))
           else
             puts "ERROR: #{expr} is not a valid operation. Could not compute."
           end
         end
-        if @@num_list.empty? === false
-          puts @@num_list.last
+        if num_list.empty? === false
+          puts num_list.last
         end        
       end
     end
 
     private
+    
+    def num_list
+      @num_list ||= Array.new
+    end
     
     def is_num?(str)
       !!Float(str) rescue false
@@ -45,33 +48,33 @@ module RPNCalc
     def add ()
       if check_size(2)
         num = get_front_num
-        @@num_list[-1] += num
+        num_list[-1] += num
       end
     end
     
     def sub ()
       if check_size(2)
         num = get_front_num
-        @@num_list[-1] -= num
+        num_list[-1] -= num
       end
     end
     
     def mult ()
       if check_size(2)
         num = get_front_num
-        @@num_list[-1] *= num
+        num_list[-1] *= num
       end
     end
     
     def div()
       if check_size(2)
         num = get_front_num
-        @@num_list[-1] /= num
+        num_list[-1] /= num
       end
     end
     
     def check_size(min_size)
-      if @@num_list.size >= min_size
+      if num_list.size >= min_size
         true
       else
         puts "ERROR: Not enough numbers in the stack for operation."
@@ -79,8 +82,8 @@ module RPNCalc
     end
     
     def get_front_num()
-      num = @@num_list.last
-      @@num_list.pop
+      num = num_list.last
+      num_list.pop
       num
     end
   end
