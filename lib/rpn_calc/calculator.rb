@@ -1,4 +1,4 @@
-module RPN_Calc
+module RPNCalc
   class Calculator
     def initialize(params)
       # I can set special functionality based on 'params' passed by the parser

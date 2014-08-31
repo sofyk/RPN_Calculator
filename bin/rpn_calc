@@ -3,7 +3,7 @@
 require_relative "../lib/rpn_calc"
 
 begin
-  RPN_Calc::Application.new(ARGV).run
+  RPNCalc::Application.new(ARGV).run
 rescue Errno::ENOENT => err
   abort "rpn_calc: #{err.message}"
 rescue OptionParser::InvalidOption => err

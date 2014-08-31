@@ -1,8 +1,8 @@
-module RPN_Calc
+module RPNCalc
   class Application
     def initialize(argv)
       @params   = parse_options(argv)
-      @calculator  = RPN_Calc::Calculator.new(@params)
+      @calculator  = RPNCalc::Calculator.new(@params)
     end
 
     def run
