@@ -15,13 +15,13 @@ module RPNCalc
         when "clr"
           num_list.clear
         when "+"
-          add
+          addition
         when "-"
-          sub
+          subtraction
         when "*"
-          mult
+          multiplication
         when "/"
-          div
+          division
         else
           if is_num?(expr)
             num_list.push(Float(expr))
@@ -45,28 +45,28 @@ module RPNCalc
       !!Float(str) rescue false
     end
     
-    def add ()
+    def addition ()
       if check_size(2)
         num = get_front_num
         num_list[-1] += num
       end
     end
     
-    def sub ()
+    def subtraction ()
       if check_size(2)
         num = get_front_num
         num_list[-1] -= num
       end
     end
     
-    def mult ()
+    def multiplication ()
       if check_size(2)
         num = get_front_num
         num_list[-1] *= num
       end
     end
     
-    def div()
+    def division()
       if check_size(2)
         num = get_front_num
         num_list[-1] /= num
