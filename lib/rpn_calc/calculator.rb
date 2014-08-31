@@ -23,11 +23,7 @@ module RPNCalc
         when '/'
           division
         else
-          if num?(expr)
-            num_list.push(Float(expr))
-          else
-            puts "ERROR: #{expr} is not a valid operation. Could not compute."
-          end
+          num_list.push(Float(expr)) if num?(expr)
         end
         puts num_list.last unless num_list.empty?
       end
@@ -40,7 +36,12 @@ module RPNCalc
     end
 
     def num?(str)
-      !!Float(str) rescue false
+      if (Float(str) rescue false)
+        true
+      else
+        puts "ERROR: #{str} is not a valid expression. Could not compute."
+        false
+      end
     end
 
     def addition
